@@ -1,2 +1,5 @@
 .DS_Store
 Thumbs.db
+
+# Godot editor import metadata — not needed for web builds
+*.import
