@@ -3,3 +3,6 @@
 
 # Godot editor import metadata — not needed at runtime
 *.import
+
+# Local deploy helper — not part of the served site
+deploy.ps1

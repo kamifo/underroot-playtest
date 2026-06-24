@@ -13,3 +13,5 @@ Thumbs.db
 # Web export into ./game/. Vercel CLI ignores the .gitignore *file* but not its
 # rules, so it still uploads ./game/ on deploy.
 /game/
+
+.vercel
