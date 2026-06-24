@@ -3,3 +3,13 @@ Thumbs.db
 
 # Godot editor import metadata — not needed for web builds
 *.import
+
+# Vercel CLI local link/state
+.vercel/
+
+# Exported Godot web build — shipped to Vercel via `vercel --prod`, NEVER committed.
+# Keeps the 100MB+ .pck out of git (GitHub's hard per-file limit) and stops the
+# repo history from ballooning on every version bump. Regenerate with a Godot
+# Web export into ./game/. Vercel CLI ignores the .gitignore *file* but not its
+# rules, so it still uploads ./game/ on deploy.
+/game/

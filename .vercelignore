@@ -1,0 +1,5 @@
+# What Vercel CLI should NOT upload. (Vercel already auto-ignores .git, .vercel,
+# node_modules, and .gitignore — no need to list those.)
+
+# Godot editor import metadata — not needed at runtime
+*.import
