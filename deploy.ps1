@@ -33,10 +33,14 @@ Copy-Item -Path (Join-Path $src '*') -Destination $dst -Recurse -Force
 $pck = Get-Item (Join-Path $dst 'index.pck')
 Write-Host ("  game/index.pck  {0:N1} MB  (exported {1:HH:mm})" -f ($pck.Length / 1MB), $pck.LastWriteTime) -ForegroundColor Green
 
+# Deploy the repo dir EXPLICITLY (not the caller's cwd). `vercel deploy` with no
+# path targets the current directory — if this script is invoked from elsewhere
+# (e.g. by absolute path) that would create a stray project from the wrong folder.
+# Passing $repo pins it to this repo's .vercel link regardless of where it's run.
 if ($Preview) {
     Write-Host "Deploying to a PREVIEW url ..." -ForegroundColor Cyan
-    vercel deploy --yes
+    vercel deploy $repo --yes
 } else {
     Write-Host "Deploying to PRODUCTION (testing.underroot.se) ..." -ForegroundColor Cyan
-    vercel deploy --prod --yes
+    vercel deploy $repo --prod --yes
 }
